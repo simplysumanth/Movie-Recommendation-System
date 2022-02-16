@@ -2,8 +2,12 @@ import pandas as pd
 import streamlit as st
 import pickle
 import requests
+import os
+from dotenv import load_dotenv
 
-tmdb_api = "00f9a9bd252c595f5381cf4ad18557f4"
+load_dotenv()
+
+tmdb_api = os.getenv("TMDB_API")
 
 movies_list = pickle.load(open('movies.pkl','rb'))
 movies_df = pd.DataFrame(movies_list)
